@@ -4,8 +4,11 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --color-yellow: #efc900;
     --color-red: #cd3333;
-    --color-gray: #d3d3d3;
+    --color-red-2: #ed718f;
+    --color-gray: #e2e2e2;
+    --color-gray-2: #c0c0c0;
     --color-blue: #0000FF;
+    --color-blue-2: #6495ed;
   } 
   
   *{

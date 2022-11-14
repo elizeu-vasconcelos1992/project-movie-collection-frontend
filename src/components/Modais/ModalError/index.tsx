@@ -10,12 +10,7 @@ function ModalError() {
     <Container>
       <div>
         <HiEmojiSad />
-        <h3>
-          {modalError === "This email is already registered" &&
-            "Email já está registrado"}
-          {modalError === "Invalid user or password" &&
-            "Usuário ou senha inválido"}
-        </h3>
+        <h3>{modalError}</h3>
       </div>
     </Container>
   );

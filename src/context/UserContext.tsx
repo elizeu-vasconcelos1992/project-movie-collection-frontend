@@ -1,7 +1,14 @@
-import { createContext, ReactNode, useReducer, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
 import FormLogin from "../components/FormLogin";
 import FormRegister from "../components/FormRegister";
 import {
+  IUser,
   IUserContext,
   IUserLogin,
   IUserProps,
@@ -18,6 +25,8 @@ export default function UserProvider({ children }: IUserProps) {
   const [modal, setModal] = useState<string>("null");
   const [modalError, setModalError] = useState<string>("");
   const [modalSuccess, setModalSuccess] = useState<string>("");
+  const [user, setUser] = useState<IUser>({} as IUser);
+  const [control, setControl] = useState<boolean>(false);
 
   function reducerPage(state: ReactNode, action: string) {
     switch (action) {
@@ -38,7 +47,7 @@ export default function UserProvider({ children }: IUserProps) {
       .post("/users", data)
       .then(res => {
         setModal("success");
-        setModalSuccess("Cadastro realizado com sucesso");
+        setModalSuccess("Cadastro realizado com sucesso, faça Login");
         closeModal();
         dispatch("login");
       })
@@ -59,7 +68,11 @@ export default function UserProvider({ children }: IUserProps) {
         closeModal();
         setTimeout(() => {
           navigate("/dashboard", { replace: true });
-        }, 2500);
+        }, 3100);
+        localStorage.clear();
+        localStorage.setItem("token", res.data.data.token);
+        localStorage.setItem("userId", res.data.data.id);
+        setControl(!control);
       })
       .catch(err => {
         setModalError(err.response.data.message);
@@ -71,6 +84,32 @@ export default function UserProvider({ children }: IUserProps) {
   function closeModal() {
     setTimeout(() => {
       setModal("null");
+    }, 3000);
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const id = localStorage.getItem("userId");
+
+    if (token) {
+      api
+        .get(`/users/${id}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then(res => {
+          setUser(res.data.data);
+        })
+        .catch(err => localStorage.clear());
+    }
+  }, [control]);
+
+  function logout() {
+    setModal("success");
+    setModalSuccess("Até a próxima");
+    closeModal();
+    setTimeout(() => {
+      localStorage.clear();
+      navigate("/", { replace: true });
     }, 3000);
   }
 
@@ -87,6 +126,11 @@ export default function UserProvider({ children }: IUserProps) {
         setModalError,
         modalSuccess,
         setModalSuccess,
+        closeModal,
+        logout,
+        user,
+        control,
+        setControl,
       }}
     >
       {children}
