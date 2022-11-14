@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import MoviesProvider from "./MoviesContext";
 import UserProvider from "./UserContext";
 
 interface IGlobalProvider {
@@ -6,7 +7,11 @@ interface IGlobalProvider {
 }
 
 function GlobalProvider({ children }: IGlobalProvider) {
-  return <UserProvider> {children}</UserProvider>;
+  return (
+    <UserProvider>
+      <MoviesProvider>{children}</MoviesProvider>
+    </UserProvider>
+  );
 }
 
 export default GlobalProvider;
