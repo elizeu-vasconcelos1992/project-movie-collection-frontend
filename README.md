@@ -1,46 +1,177 @@
-# Getting Started with Create React App
+<h1>💻 MOVIES COLLECTION</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div style="display:flex; justify-content:center">
+<img width="80%" src="./src/assets/dashboard.jpg">
+</div>
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+<p style="text-align:justify">O Movies Collection é uma aplicação para quem precisa organizar seu histórico de filmes. Para utilizar o site é preciso se cadastar, o processo é bem rápido. Na aplicação é possível criar, editar e excluir um filme. Todos os filmes criados são automaticamente listados na dashboard e o usuário ainda pode filtrar os filmes de acordo com a categoria que ele mesmo criou quando cadastrou um filme. A Aplicação é Full Stack, com front-end desenvolvido em React e back-end em Node.</p><br>
 
-### `yarn start`
+<h1>🔗 LINKS</h1>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<a href="https://project-movie-collection-frontend.vercel.app/" target="_blank">SITE DA MOVIE COLLECTION</a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<a href="https://github.com/elizeu-vasconcelos1992/project-movie-collection-frontend" target="_blank">REPOSITÓRIO DA MOVIE COLLECTION</a>
 
-### `yarn test`
+<a href="https://movies-collection-test.herokuapp.com/" target="_blank">DEPLOY DO BACK-END DA MOVIE COLLECTION</a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<a href="https://github.com/elizeu-vasconcelos1992/project-movie-collection-backend" target="_blank">REPOSITÓRIO DO BACK-END DA MOVIE COLLECTION</a>
 
-### `yarn build`
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<h1>🔗 ACESSO</h1>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<p>Crie seu próprio perfil no site ou entre com um usuário-teste, com alguns filmes cadastrados.</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+email: elizeu@gmail.com
+senha: 1234
+```
 
-### `yarn eject`
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<h1>🔨 RECURSOS</h1>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<h2> Página Inicial </h2>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<div style="display:flex; justify-content:center">
+<img width="80%" src="./src/assets/initPage.gif">
+</div>
 
-## Learn More
+<br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p>Na página inical existem dois recursos: login e cadastro. Caso o usuário não tenha cadastro, será necessário fazê-lo para acessar a aplicação. No cadastro são solicitados o name, email e senha e para efetuar o login, deve-se utilizar o email e senha cadastrados. Ambos recursos contam com regras de négocio implementadas via front e back-end, tanto no caso de requisição aceita ou rejeitada são apresentados modais de sucesso e erro para que o usuário possa seguir ou corrigí-los. Se o login for bem-sucedido, o usuário é encaminhado para dashboard. Caso seja o primeiro acesso, nenhum filme ou categoria são listados até que o primeiro filme seja adicionado.</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br>
+
+<h2> Dashboard </h2>
+
+<br>
+
+<div style="display:flex; justify-content:center">
+<img width="80%" src="./src/assets/dashboard_2.gif">
+</div>
+
+<br>
+
+<p>Na header da dashboard é listado o nome do usuário e existe o botão de logout, para que o usuário possa sair da aplicação. Na main, estão presentes as opções de adicionar um filme, lista das categorias cadastradas e a lista de filmes em cards do tipo flip, em que, na parte frontal são listados o nome e a imagem do filme cadastrado e na parte traseira estão presentes o nome, data de lançamento, categoria, sinopse e o botão de editar. A seguir esses recursos são mais detalhados. </p>
+
+<br>
+
+<h2> Adicionar filme </h2>
+
+<br>
+
+<div style="display:flex; justify-content:center">
+<img width="80%" src="./src/assets/addMovie.gif">
+</div>
+
+<br>
+
+<p>Ao clicar em "Adicionar filme" será apresentado um modal do tipo formulário para que o usuário possa inserir das informações solicitadas. As entradas são: nome, url da image, data de lançamento, sinopse e categoria. Todas as entradas são obrigatórias, o formulário conta com validações via biblioteca yup e o back-end também valida os dados. O resultado da adição, ou não, do filme é confirmada via modais de sucesso ou erro. Em caso positivo, o novo filme cadastrado é listado na dashboard. </p>
+
+<br>
+
+<h2> Editar filme </h2>
+
+<br>
+
+<div style="display:flex; justify-content:center">
+<img width="80%" src="./src/assets/editMovie.gif">
+</div>
+
+<br>
+
+<p>Para editar um filme, basta passar o mouse sobre o card desejado e, na parte traseira, clicar em "Editar filme". Um modal do tipo formulário vai surgir e o usuário pode editar o campo de desejar, nenhum campo é obrigatório. As informações editáveis são: nome, url da imagem, data de lançamento e sinopse. No mesmo formuláro existe a opção de deletar o filme, caso seja clicado, o filme será deletado da lista. O formulário de edicação e exclusão de filme conta com validações via biblioteca yup e o back-end também valida os dados. Os resultados das ações de edição e/ou exclusão de um filme são confirmados através de modais de sucesso e/ou erro.</p>
+
+<br>
+
+<h2> Filtrar filmes por categoria </h2>
+
+<br>
+
+<div style="display:flex; justify-content:center">
+<img width="80%" src="./src/assets/listMovies.gif">
+</div>
+
+<br>
+
+<p>Ao adicionar um filme o usuário pode criar um nova categoria para ele ou pode adicioná-lo em uma que ele havia criado antes, agrupando os filmes de acordo com sua vontade. Para filtrar os filmes por categoria, basta clicar nas tags listadas ao lado do botão de adicionar filme. Se uma categoria ficar sem filme, nada é listado na tela até que o usuário a vincule a um novo filme, quando este for adicionado.</p>
+
+<br>
+
+<h2> Logout </h2>
+
+<br>
+
+<div style="display:flex; justify-content:center">
+<img width="80%" src="./src/assets/logout.gif">
+</div>
+
+<br>
+
+<p>O usuário pode sair da aplicação ao clicar em "Logout", sendo redirecionado para a página inicial. Se o usuário fizer lougout, somente conseguirá acessar a dashboard se fizer novamente o login.</p>
+
+<br>
+
+<h2> Resumo dos recursos </h2>
+
+<br>
+
+<ul>
+<li><strong>Cadastro:</strong> para utilizar a aplicação é necessário realizar cadastro.</li>
+<li><strong>Login:</strong> o usuário cadastrado pode realizar login.</li>
+<li><strong>Logout:</strong> o usuário cadastrado pode sair da aplicação.</li>
+<li><strong>Perfil:</strong> o nome do usuário é listado no header da dashboard.</li>
+<li><strong>Cadastro de filmes:</strong> o usuário pode cadastrar novos filmes.</li>
+<li><strong>Lista de filmes:</strong> o usuário verá uma lista contendo seus filmes cadastrados.</li>
+<li><strong>Lista de filmes por categoria:</strong> o usuário pode filtrar seus filmes de acordo com as categorias por ele criadas.</li>
+<li><strong>Edição de filmes:</strong> o usuário pode editar uma ou mais características dos seus filmes.</li>
+<li><strong>Deletar filmes:</strong> o usuário pode deletar seus filmes.</li>
+<li><strong>Alertas:</strong> o usuário é informado, através de modais, se as suas requisições tiveram ou não sucesso.</li>
+</ul><br>
+
+<br>
+
+<h1>🚀 TECNOLOGIAS</h1>
+
+<br>
+
+<h2> Front-end </h2>
+
+<ul>
+<li>TYPESCRIPT</li>
+<li>REACT</li>
+<li>CONTEXT-API</li>
+<li>REACT-ROUTER-DOM</li>
+<li>CONSUMO DE API REST</li>
+<li>AXIOS</li>
+<li>REACT-HOOK-FORM</li>
+<li>YUP VALIDATION</li>
+<li>FRAME-MOTION</li>
+<li>STYLED-COMPONENTS</li>
+<li>DEPLOY VERCEL</li>
+</ul>
+
+<br>
+
+<br>
+
+<h2> Back-end </h2>
+
+<li>TYPESCRIPT</li>
+<li>NODE</li>
+<li>EXPRESS</li>
+<li>TYPE-ORM</li>
+<li>POSTGRESQL</li>
+<li>BCRYPT</li>
+<li>JSONWEBTOKEN</li>
+<li>CORS</li>
+<li>CLASS-TRANSFORMER</li>
+<li>DEPLOY HEROKU</li>
+</ul>
+
+<br>
