@@ -41,4 +41,8 @@ export const StyledMovieList = styled.ul`
   ::-webkit-scrollbar-corner {
     background: transparent;
   }
+
+  @media (max-width: 610px) {
+    justify-content: center;
+  }
 `;

@@ -1,15 +1,22 @@
 import styled from "styled-components";
 
 export const StyledCategoryList = styled.div`
-  width: 80%;
+  width: 90%;
   height: 100%;
   display: flex;
-  padding: 1rem;
-  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 0 0 1rem;
   gap: 1rem;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  ::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
 
   button {
-    width: fit-content;
+    min-width: fit-content;
+    font-size: calc(0.2vw + 10px);
     height: fit-content;
     background-color: transparent;
     border-radius: 5px;
@@ -22,5 +29,9 @@ export const StyledCategoryList = styled.div`
       transform: scale(1.2);
       background-color: var(--color-red-2);
     }
+  }
+
+  @media (max-width: 610px) {
+    width: 100%;
   }
 `;

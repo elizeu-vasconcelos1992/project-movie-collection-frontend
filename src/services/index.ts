@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://movies-collection-test.herokuapp.com",
+  baseURL: "https://project-movie-collection-backend-production.up.railway.app",
   timeout: 15000,
 });
 
