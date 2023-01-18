@@ -9,6 +9,10 @@ export const StyledHeader = styled.header`
   padding: 0 1.5rem 0 1.5rem;
   background-color: var(--color-yellow);
 
+  h3 {
+    font-size: calc(1vw + 0.5rem);
+  }
+
   img {
     width: 250px;
     height: 80px;
@@ -28,6 +32,16 @@ export const StyledHeader = styled.header`
     :hover {
       background-color: var(--color-gray-2);
       border: 1px solid var(--color-gray-2);
+    }
+  }
+
+  @media (max-width: 610px) {
+    img {
+      display: none;
+    }
+
+    button {
+      font-size: calc(1vw + 0.5rem);
     }
   }
 `;

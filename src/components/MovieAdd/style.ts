@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 export const StyledMovieAdd = styled.div`
-  width: 20%;
+  width: 150px;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   button {
-    width: 150px;
+    min-width: 150px;
     height: 2.5rem;
     font-size: 1rem;
     font-weight: 600;
@@ -20,6 +20,14 @@ export const StyledMovieAdd = styled.div`
 
     :hover {
       background-color: var(--color-gray-2);
+    }
+  }
+
+  @media (max-width: 610px) {
+    margin: 0 auto;
+
+    button {
+      font-size: calc(1vw + 0.5rem);
     }
   }
 `;

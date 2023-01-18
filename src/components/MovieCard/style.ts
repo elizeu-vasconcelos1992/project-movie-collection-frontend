@@ -50,7 +50,7 @@ export const StyledMovieCard = styled.li`
     background-color: var(--color-yellow);
 
     p {
-      font-size: calc(1vw + 1.5px);
+      font-size: calc(0.5vw + 0.5rem);
       text-align: justify;
       line-height: 20px;
     }
@@ -98,8 +98,9 @@ export const StyledMovieCard = styled.li`
 
   button {
     width: 90%;
+    margin: 0 auto;
     height: 2.5rem;
-    font-size: 1rem;
+    font-size: calc(1vw + 0.2rem);
     font-weight: 600;
     border-radius: 0.25rem;
     background-color: var(--color-gray);
@@ -121,5 +122,17 @@ export const StyledMovieCard = styled.li`
   :hover .back-card {
     transform: rotateY(0);
     z-index: 1;
+  }
+
+  @media (max-width: 768px) {
+    .back-card {
+      p {
+        font-size: calc(0.8vw + 0.5rem);
+      }
+    }
+
+    button {
+      font-size: calc(1vw + 0.5rem);
+    }
   }
 `;
