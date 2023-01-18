@@ -57,7 +57,7 @@ export default function FormRegister() {
       </label>
       <button type='submit'>Cadastrar</button>
 
-      <p>
+      <p className='direct-to-login'>
         Voltar para o{" "}
         <span className='button-register' onClick={e => dispatch("login")}>
           Login
