@@ -10,13 +10,17 @@ export const StyledCoverPage = styled.div`
   background-color: var(--color-yellow);
 
   img {
-    width: 500px;
+    width: 100%;
     height: 300px;
   }
 
   h2 {
     width: 65%;
-    font-size: 1.8rem;
+    font-size: calc(1vw + 0.5rem);
     text-align: justify;
+  }
+
+  @media (max-width: 650px) {
+    display: none;
   }
 `;

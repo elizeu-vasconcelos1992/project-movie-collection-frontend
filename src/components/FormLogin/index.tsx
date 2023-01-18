@@ -51,7 +51,7 @@ export default function FormLogin() {
       </label>
       <button type='submit'>Entrar</button>
 
-      <p>
+      <p className='direct-to-register'>
         Ainda não possui uma Conta? Então,{" "}
         <span className='button-register' onClick={e => dispatch("register")}>
           Cadastre-se
